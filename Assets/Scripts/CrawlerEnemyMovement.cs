@@ -2,35 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrawlerEnemyMovement : MonoBehaviour
-{
+public class CrawlerEnemyMovement : MonoBehaviour {
     Rigidbody rb;
     public GameObject player;
     public Vector3 lookAt;
     GameObject zombAnimator;
     public int Speed;
-    // Start is called before the first frame update
-    void Start()
-    {
+    
+    void Start() {
         rb = GetComponent<Rigidbody>();
         zombAnimator = transform.GetChild(0).gameObject;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {   
+    void FixedUpdate() {   
         if(GetComponent<Health>().hasDiedb != true){
-            if(player !=null){
-                zombAnimator.GetComponent<Animator>().SetBool("isWalking",true);
+            if (player != null) {
+                zombAnimator.GetComponent<Animator>().SetBool("isWalking", true);
                 Vector3 MyLocation = GetComponent<Transform>().position;
                 Vector3 PlayerPos = player.GetComponent<Transform>().position;
                 Vector3 direction = PlayerPos - MyLocation;
-                lookAt = new Vector3(PlayerPos.x,0,PlayerPos.z);
+                lookAt = new Vector3(PlayerPos.x, 0, PlayerPos.z);
                 GetComponent<Transform>().LookAt(lookAt);
-                Vector3 newvelocity = new Vector3(direction.normalized.x * Speed *10f,MyLocation.y,direction.normalized.z * Speed*10f);
+                Vector3 newvelocity = new Vector3(direction.normalized.x * Speed * 10f, MyLocation.y,direction.normalized.z * Speed * 10f);
                 rb.AddForce(newvelocity,ForceMode.Force);
             } else {
-                zombAnimator.GetComponent<Animator>().SetBool("isWalking",false);
+                zombAnimator.GetComponent<Animator>().SetBool("isWalking", false);
             }
         
         }

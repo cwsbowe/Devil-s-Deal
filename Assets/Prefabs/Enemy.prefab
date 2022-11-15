@@ -799,6 +799,7 @@ GameObject:
   - component: {fileID: 1540164238612352529}
   - component: {fileID: 3058299271289985122}
   - component: {fileID: 5507889339348367959}
+  - component: {fileID: 3820314062082287596}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -882,6 +883,7 @@ MonoBehaviour:
   deathTime: 1.5
   health: 100
   hasDiedb: 0
+  souls: {fileID: 3820314062082287596}
 --- !u!136 &3058299271289985122
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -909,6 +911,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 1}
+--- !u!114 &3820314062082287596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268370612216574062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cbd5f4497d8ce458c46431dc9a86ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulValue: 4
+  soul: {fileID: 5981254386433830403, guid: 658bab87c69a2b04a856ac3f58c6b2dd, type: 3}
 --- !u!1 &3337111996305148184
 GameObject:
   m_ObjectHideFlags: 0
