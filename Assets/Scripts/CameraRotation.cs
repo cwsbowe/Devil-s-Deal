@@ -7,6 +7,7 @@ public class CameraRotation : MonoBehaviour {
     public float verticalSensitivity;
 
     public Transform orientation;
+
     private float xRot;
     private float yRot;
 
