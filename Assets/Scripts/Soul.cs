@@ -9,7 +9,7 @@ public class Soul : MonoBehaviour {
         
         if (other.gameObject.tag == "Player") {
             other.gameObject.GetComponent<SoulCount>().souls++;
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

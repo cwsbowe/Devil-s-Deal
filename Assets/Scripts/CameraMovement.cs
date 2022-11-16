@@ -54,7 +54,6 @@ public class CameraMovement : MonoBehaviour
     private void MyInput() {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
-        print("jumpkey " + Input.GetKey(jumpKey) + "readyToJump " + readyToJump + "grounded " + grounded);
         if (Input.GetKey(jumpKey) && readyToJump && grounded) {
             readyToJump = false;
             Jump();
