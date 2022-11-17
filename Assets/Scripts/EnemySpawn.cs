@@ -8,22 +8,26 @@ public class EnemySpawn : MonoBehaviour
     public GameObject playerCharacter;
     float spawnCounter;
     public float spawnRate;
+    public bool spawning;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         spawnCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnCounter += Time.deltaTime;
+        if(spawning){
+            spawnCounter += Time.deltaTime;
 
-        if(spawnCounter > spawnRate){
-            spawnCounter = 0;
-            SpawnEnemy();
+            if(spawnCounter > spawnRate ){
+                spawnCounter = 0;
+                SpawnEnemy();
+            }
         }
+        
     }
     void SpawnEnemy(){
         //choose a random one of spawnpoints to spawn at

@@ -45,7 +45,8 @@ public class CrawlerEnemyAttack : MonoBehaviour
         if(player != null){
             if(GetComponent<Health>().hasDiedb != true){
                 Health healthscript = player.GetComponent<Health>();
-            healthscript.health -= attackDamage;
+                
+                healthscript.health -= attackDamage;
             }
             
         }

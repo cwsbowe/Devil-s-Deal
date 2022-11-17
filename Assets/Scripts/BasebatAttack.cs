@@ -26,15 +26,17 @@ public class BasebatAttack : MonoBehaviour
         
         if(other.tag == "Enemy"){
             other.GetComponent<Health>().health -= damage;
-            other.GetComponent<Rigidbody>().AddForce((new Vector3(other.transform.position.x,0,other.transform.position.z) - new Vector3(transform.position.x,0,transform.position.z)).normalized*100f*knockback);
         }
         
     }
 
     void meleeAttack(){
-        attackBool = false;
-        GetComponent<Animator>().SetTrigger("Attack");
-        StartCoroutine(ResetAttackCooldown());
+        if(attackBool){
+            attackBool = false;
+            GetComponent<Animator>().SetTrigger("Attack");
+            StartCoroutine(ResetAttackCooldown());
+        }
+        
     }
 
     IEnumerator ResetAttackCooldown()
