@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuyGun : MonoBehaviour {
-    
-    // public GameObject gun;
-    public GameObject weapon;
     public GameObject player;
+    public bool owned;
     public int price;
     private GameObject newGun;
 
-    public void CreateGun() {
-        if (player.GetComponent<SoulCount>().souls >= price) {
+    public void Buy() {
+        if (player.GetComponent<SoulCount>().souls >= price && !owned) {
             player.GetComponent<SoulCount>().souls -= price;
-            weapon.transform.GetChild(0).gameObject.SetActive(false);
-            gameObject.SetActive(true);
-            gameObject.transform.SetAsFirstSibling();
+            owned = true;
+            gameObject.transform.parent.GetComponent<ChangeWeapon>().Unequip();
+            gameObject.transform.parent.GetComponent<ChangeWeapon>().numberOfWeapons++;
+            gameObject.transform.parent.GetComponent<ChangeWeapon>().Equip(transform.GetSiblingIndex());
         }
     }
 }
