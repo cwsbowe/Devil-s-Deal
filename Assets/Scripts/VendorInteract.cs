@@ -7,6 +7,7 @@ public class VendorInteract : MonoBehaviour
     private bool inRange = false;
     private bool panelOpen = false;
     public GameObject panel;
+    public GameObject weapon;
 
     public void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
@@ -21,6 +22,7 @@ public class VendorInteract : MonoBehaviour
             Cursor.visible = false;
             panel.SetActive(false);
             panelOpen = false;
+            weapon.SetActive(true);
         }
     }
 
@@ -31,11 +33,13 @@ public class VendorInteract : MonoBehaviour
                 Cursor.visible = true;
                 panelOpen = true;
                 panel.SetActive(true);
+                weapon.SetActive(false);
             } else {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 panelOpen = false;
                 panel.SetActive(false);
+                weapon.SetActive(true);
             }
         }
     }
