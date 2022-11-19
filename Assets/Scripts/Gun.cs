@@ -11,24 +11,70 @@ public class Gun : MonoBehaviour {
     public float bulletExpiry = 3;
     public bool automatic;
     private float lastFired;
-
-    void Update() {
-        if (automatic) {
-            if (Input.GetKey(KeyCode.Mouse0) && Time.time - lastFired > 0.1f) {
-                lastFired = Time.time;
-                Fire();
-            }
-        } else {
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
-                Fire();
-            }
-        }
+    public int bulletdamage;
+    public float fireRate;
+    private float timeSinceLastFire;
+    public int clipSize;
+    public int clip;
+    public int piercing;
+    void Start(){
+        timeSinceLastFire = 0;
+        clip = clipSize;
     }
 
-    private void Fire() {
-        if (ammo > 0) {
-            ammo--;
+    void Reload(){
+        if(clipSize <= ammo){
+            clip = clipSize;
+            ammo -= clipSize;
+        } else {
+            clip = ammo;
+            ammo = 0;
+        }
+         
+    }
+    public void IncreaseGunDamage(int damageIncrease){
+        bulletdamage += damageIncrease;
+    }
+    public void IncreaseFireRate(float increasePercent){
+        fireRate = fireRate * ((100-increasePercent)/100);
+    }
+    public void IncrementPiercing(){
+        piercing +=1;
+    }
+    void Update() {
+        timeSinceLastFire += Time.deltaTime;
+        if (Input.GetKey(KeyCode.R) && clip != clipSize && ammo != 0) {
+                Reload();
+                GetComponent<Animator>().SetTrigger("Reload");
+            }
+        
+        if (automatic) {
+            if (Input.GetKey(KeyCode.Mouse0) && timeSinceLastFire > fireRate) {
+                lastFired = Time.time;
+                Fire(true);
+            }else{
+                GetComponent<Animator>().SetBool("Shoot",false);
+            }
+        } else {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && timeSinceLastFire > fireRate) {
+                Fire(false);
+            }
+        }
+        
+    }
+
+    private void Fire(bool Auto) {
+        if (clip > 0) {
+            clip--;
+            if(Auto){
+                GetComponent<Animator>().SetBool("Shoot",true);
+            }else{
+                GetComponent<Animator>().SetTrigger("Shoot");
+            }
+            timeSinceLastFire = 0;
             GameObject bullet = Instantiate(bulletPrefab, barrelEnd.position, barrelEnd.rotation);
+            bullet.GetComponent<Bullet>().damage = bulletdamage;
+            bullet.GetComponent<Bullet>().piercingCount = piercing;
             bullet.GetComponent<Rigidbody>().AddForce(barrelEnd.forward * bulletSpeed, ForceMode.Impulse);
             StartCoroutine(ExpireBullet(bullet, bulletExpiry));
         }

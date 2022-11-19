@@ -7,6 +7,10 @@ public class AmmoDisplay : MonoBehaviour {
     public GameObject weapon;
 
     void Update() {
-        gameObject.GetComponent<Text>().text = "Ammo: " + weapon.transform.GetChild(weapon.GetComponent<ChangeWeapon>().equippedIndex).GetComponent<Gun>().ammo + "/" + weapon.transform.GetChild(weapon.GetComponent<ChangeWeapon>().equippedIndex).GetComponent<Gun>().maxAmmo;
+        if(weapon.transform.GetChild(weapon.GetComponent<ChangeWeapon>().equippedIndex).tag == "Gun"){
+            gameObject.GetComponent<Text>().text = "Ammo: " + weapon.transform.GetChild(weapon.GetComponent<ChangeWeapon>().equippedIndex).GetComponent<Gun>().clip + "/" + weapon.transform.GetChild(weapon.GetComponent<ChangeWeapon>().equippedIndex).GetComponent<Gun>().ammo;
+        } else {
+            gameObject.GetComponent<Text>().text = "";
+        }
     }
 }

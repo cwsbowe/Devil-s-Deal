@@ -7,7 +7,6 @@ public class BasebatAttack : MonoBehaviour
     public bool attackBool;
     public float cooldown;
     public int damage;
-    public float knockback;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +18,16 @@ public class BasebatAttack : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             meleeAttack();
+            print("attacking with bat");
         }
     }
 
     private void OnTriggerEnter(Collider other) {
-        
+
+        print("hit something" + other.tag);
         if(other.tag == "Enemy"){
             other.GetComponent<Health>().health -= damage;
+            print("hit Enemy");
         }
         
     }

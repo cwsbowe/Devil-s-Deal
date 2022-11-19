@@ -22,6 +22,8 @@ public class Health : MonoBehaviour {
                     hasDiedb = true;
                     zombAnimator.SetTrigger("hasDied");
                     souls.GenerateSoul();
+                    GetComponent<BoxCollider>().enabled = false;
+                    GetComponent<CapsuleCollider>().enabled = false;
                 }
                 cummulativeDeathTime += Time.deltaTime;
                 if (cummulativeDeathTime >= deathTime) {

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8504624488116664731}
   - component: {fileID: 8504624488116664729}
   - component: {fileID: 8504624488116664730}
+  - component: {fileID: 8886313845890595405}
   m_Layer: 0
   m_Name: Mob_BaseBall_Bat_LOD_0
   m_TagString: Untagged
@@ -135,3 +136,18 @@ MonoBehaviour:
   cooldown: 2
   damage: 30
   knockback: 150
+--- !u!114 &8886313845890595405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504624488118921052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9804acc01ac7446a1df06c847c8eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  owned: 0
+  price: 0

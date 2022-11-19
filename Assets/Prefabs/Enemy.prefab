@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799b7491568d4c4458249d4f8b256a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTime: 0.5
+  attackTime: 1
   attackDamage: 10
 --- !u!114 &3268370612216574058
 MonoBehaviour:
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904a18173dc8dae4bb296421e43e5e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTime: 1.5
+  deathTime: 0
   health: 100
   hasDiedb: 0
   souls: {fileID: 3820314062082287596}

@@ -9,9 +9,12 @@ public class CrawlerEnemyAttack : MonoBehaviour
     float cummulativeTime;
     bool timerActive;
     Collider player;
+    GameObject zombieAnimator;
+
 
     void Start(){
         timerActive = false;
+        zombieAnimator = transform.GetChild(0).gameObject;
     }
     void Update(){
         if(timerActive == true){
@@ -21,8 +24,8 @@ public class CrawlerEnemyAttack : MonoBehaviour
         }
         if(player != null){
             if(cummulativeTime > attackTime){
-                Attack();
                 cummulativeTime = 0;
+                Attack();
             }
         }
     }
@@ -44,9 +47,10 @@ public class CrawlerEnemyAttack : MonoBehaviour
     void Attack(){
         if(player != null){
             if(GetComponent<Health>().hasDiedb != true){
+                print("attacking");
                 Health healthscript = player.GetComponent<Health>();
-                
                 healthscript.health -= attackDamage;
+                zombieAnimator.GetComponent<Animator>().SetTrigger("Attack");
             }
             
         }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour {
     public float horizontalSensitivity;
     public float verticalSensitivity;
-
+    public GameObject RegularVendor;
+    public GameObject DevilVendor;
     public Transform orientation;
 
     private float xRot;
@@ -18,15 +19,19 @@ public class CameraRotation : MonoBehaviour {
     }
 
     void Update() {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * horizontalSensitivity;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * verticalSensitivity;
+        if(!DevilVendor.activeSelf && !RegularVendor.activeSelf){
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * horizontalSensitivity;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * verticalSensitivity;
 
-        //This is because the rotation is around the axis whereas the mouse movement is on the axis
-        yRot += mouseX;
-        xRot -= mouseY;
-        xRot = Mathf.Clamp(xRot, -90f, 90f);
+            //This is because the rotation is around the axis whereas the mouse movement is on the axis
+            yRot += mouseX;
+            xRot -= mouseY;
+            xRot = Mathf.Clamp(xRot, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRot, yRot, 0);
-        orientation.rotation = Quaternion.Euler(0, yRot, 0);
+            transform.rotation = Quaternion.Euler(xRot, yRot, 0);
+            orientation.rotation = Quaternion.Euler(0, yRot, 0);
+        }
+
+        
     }
 }

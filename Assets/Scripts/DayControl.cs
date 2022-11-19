@@ -6,10 +6,14 @@ public class DayControl : MonoBehaviour
 {
     public GameObject spawner;
     public bool doWeThinkWaveActive;
+    public GameObject DevilVendor;
+    public GameObject RegularVendor;
     // Start is called before the first frame update
     void Start()
     {  
         doWeThinkWaveActive = false;
+        DevilVendor.SetActive(false);
+        RegularVendor.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,38 +33,21 @@ public class DayControl : MonoBehaviour
         transform.rotation = Quaternion.Euler(30,0,0);
         GetComponent<Light>().color = Color.white;
         GetComponent<Light>().intensity = 2;
+        RegularVendor.SetActive(true);
     }
     void setNight(){
         GetComponent<Light>().intensity = 0.1f;
         transform.rotation = Quaternion.Euler(-11,0,0);
         GetComponent<Light>().color = Color.black;
+        RegularVendor.SetActive(false);
+        DevilVendor.SetActive(false);
     }
 
     void setBloodMoon(){
         GetComponent<Light>().intensity = 4;
         transform.rotation = Quaternion.Euler(30,0,0);
         GetComponent<Light>().color = Color.red;
+        RegularVendor.SetActive(true);
+        DevilVendor.SetActive(true);
     }
-    /*
-    void initialiseLights(){
-        Light defaultLight = GetComponent<Light>();
-        //day
-        day = new GameObject();
-        day.AddComponent<Light>();
-        day.transform.rotation = Quaternion.Euler(30,0,0);
-        day.GetComponent<Light>().color = Color.white;
-        day.GetComponent<Light>().intensity = 2;
-        //night
-        night = new GameObject();
-        night.AddComponent<Light>();
-        night.transform.rotation = Quaternion.Euler(-8,0,0);
-        night.GetComponent<Light>().color = Color.black;
-        night.GetComponent<Light>().intensity = 0.1f;
-        //night
-        bloodMoon = new GameObject();
-        bloodMoon.AddComponent<Light>();
-        bloodMoon.transform.rotation = Quaternion.Euler(90,0,0);
-        bloodMoon.GetComponent<Light>().color = Color.red;
-        bloodMoon.GetComponent<Light>().intensity = 5f;
-    } */
 }

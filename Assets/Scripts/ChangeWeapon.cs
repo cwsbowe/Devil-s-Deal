@@ -21,7 +21,7 @@ public class ChangeWeapon : MonoBehaviour {
             Unequip();
             bool changed = false;
             for (int i = equippedIndex + 1; i < gameObject.transform.childCount; i++) {
-                if (gameObject.transform.GetChild(i).GetComponent<BuyGun>().owned) {
+                if (gameObject.transform.GetChild(i).GetComponent<BuyWeapon>().owned) {
                     Equip(equippedIndex + 1);
                     changed = true;
                     break;
