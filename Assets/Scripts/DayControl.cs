@@ -24,7 +24,12 @@ public class DayControl : MonoBehaviour
             setNight();
         } else if(!spawner.GetComponent<WaveControl>().waveActive && doWeThinkWaveActive){
             doWeThinkWaveActive = false;
-            setDay();
+            if(spawner.GetComponent<WaveControl>().waveNumber % 5 == 0){
+                setBloodMoon();
+            } else{
+                setDay();
+            }
+            
         }
         
     }

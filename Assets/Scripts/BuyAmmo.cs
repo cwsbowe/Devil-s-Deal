@@ -12,7 +12,7 @@ public class BuyAmmo : MonoBehaviour {
             player.GetComponent<SoulCount>().souls -= price;
             for (int i = 0; i < weapon.transform.childCount; i++) {
                 if (weapon.transform.GetChild(i).GetComponent<BuyWeapon>().owned) {
-                    if(weapon.transform.GetChild(i).tag == "gun"){
+                    if(weapon.transform.GetChild(i).tag == "Gun"){
                         weapon.transform.GetChild(i).GetComponent<Gun>().ammo = weapon.transform.GetChild(i).GetComponent<Gun>().maxAmmo;
                     }
                 }

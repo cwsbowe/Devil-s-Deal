@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeWeapon : MonoBehaviour {
     public int equippedIndex; //starts at 0
     public int numberOfWeapons = 1;
+    public GameObject crosshair;
 
     public void Unequip() {
         gameObject.transform.GetChild(equippedIndex).gameObject.SetActive(false);
@@ -13,6 +14,11 @@ public class ChangeWeapon : MonoBehaviour {
     public void Equip(int index) {
         equippedIndex = index;
         gameObject.transform.GetChild(index).gameObject.SetActive(true);
+        if(gameObject.transform.GetChild(index).gameObject.tag == "Gun"){
+            crosshair.SetActive(true);
+        }else{
+            crosshair.SetActive(false);
+        }
 
     }
 

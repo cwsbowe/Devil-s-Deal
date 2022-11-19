@@ -11,8 +11,7 @@ public class VendorInteract : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            
-            //announce interactable
+            inRange = true;
         }
     }
 
