@@ -12,6 +12,7 @@ public class ChangeWeapon : MonoBehaviour {
     }
 
     public void Equip(int index) {
+        GetComponent<AudioSource>().Play();
         equippedIndex = index;
         gameObject.transform.GetChild(index).gameObject.SetActive(true);
         if(gameObject.transform.GetChild(index).gameObject.tag == "Gun"){

@@ -32,6 +32,7 @@ public class VendorInteract : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
                 panelOpen = true;
+                GetComponent<AudioSource>().Play();
                 panel.SetActive(true);
                 weapon.SetActive(false);
             } else {

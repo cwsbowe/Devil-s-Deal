@@ -13,6 +13,7 @@ public class WaveControl : MonoBehaviour
     public int WaveTime;
     public int safeTime;
     public GameObject announcementBar;
+    public GameObject enemyHolder;
     public float percentageSpawnRateChange;
     private float cummulativeTime;
     public bool waveActive;

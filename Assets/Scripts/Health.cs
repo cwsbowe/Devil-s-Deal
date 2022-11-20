@@ -20,6 +20,7 @@ public class Health : MonoBehaviour {
             if (tag == "Enemy") {
                 if (hasDiedb == false) {
                     hasDiedb = true;
+                    GetComponent<AudioSource>().Play();
                     zombAnimator.SetTrigger("hasDied");
                     souls.GenerateSoul();
                     GetComponent<BoxCollider>().enabled = false;

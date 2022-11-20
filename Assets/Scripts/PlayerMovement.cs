@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     float hInput;
     float vInput;
 
+    public AudioSource footsteps;
+    bool playing = false;
+    bool moving = false;
+
     Vector3 direction;
 
     Rigidbody rb;
@@ -33,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         ResetJump();
+        footsteps.volume = 0.1f;
     }
 
     private void Update() {
@@ -40,7 +45,18 @@ public class PlayerMovement : MonoBehaviour
 
         MyInput();
         LimitSpeed();
-
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) {
+            moving = true;
+        } else {
+            moving = false;
+        }
+        if (!playing && grounded && moving) {
+            footsteps.Play();
+            playing = true;
+        } else if (playing && (!moving || !grounded)) {
+            footsteps.Stop();
+            playing = false;
+        }
         if (grounded)
             rb.drag = friction;
         else

@@ -9,6 +9,7 @@ public class BuyAmmo : MonoBehaviour {
 
     public void Buy() {
         if (player.GetComponent<SoulCount>().souls >= price) {
+            weapon.GetComponent<AudioSource>().Play();
             player.GetComponent<SoulCount>().souls -= price;
             for (int i = 0; i < weapon.transform.childCount; i++) {
                 if (weapon.transform.GetChild(i).GetComponent<BuyWeapon>().owned) {

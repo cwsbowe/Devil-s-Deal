@@ -17,6 +17,8 @@ public class Gun : MonoBehaviour {
     public int clipSize;
     public int clip;
     public int piercing;
+
+
     void Start(){
         timeSinceLastFire = 0;
         clip = clipSize;
@@ -66,9 +68,10 @@ public class Gun : MonoBehaviour {
     private void Fire(bool Auto) {
         if (clip > 0) {
             clip--;
-            if(Auto){
+            gameObject.GetComponent<AudioSource>().Play();
+            if(Auto) {
                 GetComponent<Animator>().SetBool("Shoot",true);
-            }else{
+            } else{
                 GetComponent<Animator>().SetTrigger("Shoot");
             }
             timeSinceLastFire = 0;
