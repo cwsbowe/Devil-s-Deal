@@ -7,7 +7,7 @@ public class BuyHealth : MonoBehaviour {
     public int price;
 
     public void Buy() {
-        if (player.GetComponent<SoulCount>().souls >= price) {
+        if (player.GetComponent<SoulCount>().souls >= price && player.GetComponent<Health>().health != 100) {
             player.GetComponent<SoulCount>().souls -= price;
             player.GetComponent<Health>().health = 100;
         }

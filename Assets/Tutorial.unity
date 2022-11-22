@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0180059, g: 0.013686066, b: 0.009565373, a: 1}
+  m_IndirectSpecularColor: {r: 0.0984231, g: 0.09497247, b: 0.07210924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -813,8 +813,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7995101, b: 0, a: 1}
-  m_Intensity: 0
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Intensity: 0.12
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -853,7 +853,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -871,14 +871,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261814168}
-  m_LocalRotation: {x: -0.08887525, y: -0, z: -0, w: 0.9960428}
+  m_LocalRotation: {x: -0.025647353, y: -0, z: -0, w: 0.99967104}
   m_LocalPosition: {x: -30, y: 1.916615, z: -32.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 332079205}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -10.198, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.939, y: 0, z: 0}
 --- !u!114 &261814171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1243,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574058, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1253,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.38
+      value: -9.18
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1263,7 +1263,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.52
+      value: 23.640001
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1888,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574058, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1898,7 +1898,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.95
+      value: -10.610001
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1908,7 +1908,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.67
+      value: 21.79
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -1987,7 +1987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485346280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.059317, y: 0, z: 47.6}
+  m_LocalPosition: {x: 34.9, y: 0, z: 9.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3934,22 +3934,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1052112554}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1052112556
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151012712}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 13.294001, y: 3.9520001, z: 6.6600003}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 3.9520001, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &1119207711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4431,7 +4415,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574058, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -4441,7 +4425,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.9
+      value: -11.66
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -4451,7 +4435,7 @@ PrefabInstance:
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.17
+      value: 25.29
       objectReference: {fileID: 0}
     - target: {fileID: 3268370612216574060, guid: 0fbd369ed6c9d3747ae0e5417a2835db,
         type: 3}
@@ -7154,22 +7138,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1652176815}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1652176817
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013455151}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.174, y: 0.536, z: 0.44700003}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &1669544221
 PrefabInstance:
   m_ObjectHideFlags: 0

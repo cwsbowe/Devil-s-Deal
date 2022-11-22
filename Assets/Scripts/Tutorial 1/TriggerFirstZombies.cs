@@ -17,11 +17,15 @@ public class TriggerFirstZombies : MonoBehaviour
         triggered = false;
     }
     void OnTriggerEnter(){
-        zomb1.SetActive(true);
-        zomb2.SetActive(true);
-        zomb3.SetActive(true);
-        StartCoroutine(NextPanelOBJ("Use Space to jump and traverse the alley"));
-        TutorialController.GetComponent<TextGuide>().MakeAnnouncement("That is if you aren't eaten first",2);
+        if(!triggered){
+            triggered = true;
+            zomb1.SetActive(true);
+            zomb2.SetActive(true);
+            zomb3.SetActive(true);
+            StartCoroutine(NextPanelOBJ("Use Space to jump and traverse the alley"));
+            TutorialController.GetComponent<TextGuide>().MakeAnnouncement("That is if you aren't eaten first",2);
+        }
+        
     }
     IEnumerator NextPanelOBJ(string text){
         Panel.GetComponent<Image>().color = Color.green;

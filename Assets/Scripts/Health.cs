@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour {      
     public float deathTime;
@@ -31,7 +32,9 @@ public class Health : MonoBehaviour {
                     Destroy(gameObject);
                 }
             } else {
-                Destroy(gameObject);
+                SceneManager.LoadScene("Start");
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
             }
             
         }
