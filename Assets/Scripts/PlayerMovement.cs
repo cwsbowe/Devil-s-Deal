@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         ResetJump();
-        footsteps.volume = 0.1f;
+        footsteps.volume = 0.05f;
     }
 
     private void Update() {
