@@ -13,13 +13,11 @@ public class WaveControl : MonoBehaviour
     public int WaveTime;
     public int safeTime;
     public GameObject announcementBar;
-    public GameObject enemyHolder;
     public float percentageSpawnRateChange;
     private float cummulativeTime;
     public bool waveActive;
     private bool announcementBarActive;
-
-
+    public GameObject ZombiePool;
 
     void Start(){
         announcementBarActive = false;
@@ -43,11 +41,17 @@ public class WaveControl : MonoBehaviour
             cummulativeTime = 0;
             GetComponent<EnemySpawn>().spawning = false;
             waveActive = false;
+            clearZombies();
             if(waveNumber % 5 == 0){
-                ShowAnnouncement("Devishly good");
+                ShowAnnouncement("The Devil has come to make a deal");
                 sunlight = bloodMoon;
-            } else {
-                ShowAnnouncement("You survived another night");
+            } else if(waveNumber == 1) {
+                ShowAnnouncement("Vendor has spawned somewhere on the map");
+                ShowAnnouncement("Find it before nightfall");
+                sunlight = day;
+                
+            } else{
+                ShowAnnouncement("Another day, another vendor location");
                 sunlight = day;
             }
             
@@ -56,21 +60,38 @@ public class WaveControl : MonoBehaviour
 
         //safe time over
         if(!waveActive && cummulativeTime >= WaveTime){
-            GetComponent<EnemySpawn>().spawnRate = GetComponent<EnemySpawn>().spawnRate * (1-(percentageSpawnRateChange/100));
+            waveNumber +=1;
+            increaseDifficulty();
             cummulativeTime = 0;
             waveActive = true;
             GetComponent<EnemySpawn>().spawning = true;
             sunlight = night;
-            waveNumber +=1;
+            
             ShowAnnouncement("Wave " + waveNumber);
             ShowAnnouncement("You have " + parseTimeToText(WaveTime) + " to survive");
         }
         
     }
+    void increaseDifficulty(){
+        GetComponent<EnemySpawn>().spawnRate = GetComponent<EnemySpawn>().spawnRate * (1-(percentageSpawnRateChange/100));
+        GetComponent<EnemySpawn>().enemySP += 0.2f;
+        GetComponent<EnemySpawn>().spawnHealth += 10;
+        WaveTime+= 15;
+    }
+    void clearZombies(){
+        for (int i = 0; i < ZombiePool.transform.childCount; i++) {
+            Destroy(ZombiePool.transform.GetChild(i).gameObject);
+        }
+    }
     string parseTimeToText(int seconds){
         int minutes = seconds / 60;
         int displaySeconds = seconds % 60;
-        return "" +minutes +":"+displaySeconds;
+        if(displaySeconds < 10){
+            return "" +minutes +":0"+displaySeconds;
+        }else{
+            return "" +minutes +":"+displaySeconds;
+        }
+        
     }
 
     IEnumerator AnnouncementTimer(string text,float showtime)
@@ -95,8 +116,6 @@ public class WaveControl : MonoBehaviour
     }
 
     void ShowAnnouncement(string text){
-        
         StartCoroutine(AnnouncementTimer(text,3));
-        
     }
 }

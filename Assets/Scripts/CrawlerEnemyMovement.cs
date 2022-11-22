@@ -7,7 +7,7 @@ public class CrawlerEnemyMovement : MonoBehaviour {
     public GameObject player;
     public Vector3 lookAt;
     GameObject zombAnimator;
-    public int Speed;
+    public float moveSpeed;
     
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -18,6 +18,7 @@ public class CrawlerEnemyMovement : MonoBehaviour {
         if(GetComponent<Health>().hasDiedb != true){
             if (player != null) {
                 GetComponent<NavMeshAgent>().SetDestination(player.GetComponent<Transform>().position);
+                GetComponent<NavMeshAgent>().speed = moveSpeed;
                 zombAnimator.GetComponent<Animator>().SetBool("isWalking", true);
             } else {
                 zombAnimator.GetComponent<Animator>().SetBool("isWalking", false);

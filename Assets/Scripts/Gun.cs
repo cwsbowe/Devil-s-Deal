@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform barrelEnd;
-    public int ammo;
+    public int ammo; //total ammo
     public int maxAmmo;
     public float bulletSpeed = 30;
     public float bulletExpiry = 3;
@@ -14,8 +14,8 @@ public class Gun : MonoBehaviour {
     public int bulletdamage;
     public float fireRate;
     private float timeSinceLastFire;
-    public int clipSize;
-    public int clip;
+    public int clipSize; //max in clip
+    public int clip; //total in clip
     public int piercing;
 
 
@@ -25,9 +25,10 @@ public class Gun : MonoBehaviour {
     }
 
     void Reload(){
-        if(clipSize <= ammo){
+        int neededAmmo = clipSize - clip;
+        if(neededAmmo <= ammo){
             clip = clipSize;
-            ammo -= clipSize;
+            ammo -= neededAmmo;
         } else {
             clip = ammo;
             ammo = 0;
@@ -42,6 +43,9 @@ public class Gun : MonoBehaviour {
     }
     public void IncrementPiercing(){
         piercing +=1;
+    }
+    public void IncreaseMaxAmmo(){
+        maxAmmo +=50;
     }
     void Update() {
         timeSinceLastFire += Time.deltaTime;

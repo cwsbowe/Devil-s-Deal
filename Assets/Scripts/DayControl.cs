@@ -8,6 +8,7 @@ public class DayControl : MonoBehaviour {
     public GameObject DevilVendor;
     public GameObject RegularVendor;
     public int day;
+    public GameObject SpawnPoints;
 
     // Start is called before the first frame update
     void Start() {
@@ -41,21 +42,30 @@ public class DayControl : MonoBehaviour {
         transform.rotation = Quaternion.Euler(30,0,0);
         GetComponent<Light>().color = Color.white;
         GetComponent<Light>().intensity = 2;
-        RegularVendor.SetActive(true);
+        spawnRegularVendor();
     }
     void setNight() {
         GetComponent<Light>().intensity = 0.1f;
         transform.rotation = Quaternion.Euler(-11,0,0);
         GetComponent<Light>().color = Color.black;
-        RegularVendor.SetActive(false);
+        RegularVendor.GetComponent<VendorInteract>().ExitPanel();
+        RegularVendor.SetActive(false);        
+        DevilVendor.GetComponent<VendorInteract>().ExitPanel();
         DevilVendor.SetActive(false);
+        
     }
 
     void setBloodMoon() {
         GetComponent<Light>().intensity = 4;
         transform.rotation = Quaternion.Euler(30,0,0);
         GetComponent<Light>().color = Color.red;
-        RegularVendor.SetActive(true);
+        spawnRegularVendor();
         DevilVendor.SetActive(true);
+    }
+
+    void spawnRegularVendor(){
+        RegularVendor.SetActive(true);
+        int spawnPointCount = SpawnPoints.transform.childCount;
+        RegularVendor.transform.position = SpawnPoints.transform.GetChild(Random.Range(0,spawnPointCount)).position;
     }
 }

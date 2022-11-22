@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   weapon: {fileID: 0}
-  waveControl: {fileID: 0}
+  TextPanel: {fileID: 0}
 --- !u!1001 &2396686585261751753
 PrefabInstance:
   m_ObjectHideFlags: 0

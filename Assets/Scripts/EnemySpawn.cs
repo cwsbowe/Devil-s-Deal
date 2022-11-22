@@ -8,6 +8,8 @@ public class EnemySpawn : MonoBehaviour {
     public GameObject enemyHolder;
     float spawnCounter;
     public float spawnRate;
+    public int spawnHealth;
+    public float enemySP;
     public bool spawning;
 
     void Start() {   
@@ -34,6 +36,8 @@ public class EnemySpawn : MonoBehaviour {
         int whichChild = Random.Range(0,children.Count);
         GameObject newEnemy = Instantiate(EnemyPrefab, enemyHolder.transform);
         newEnemy.GetComponent<CrawlerEnemyMovement>().player = playerCharacter;
+        newEnemy.GetComponent<CrawlerEnemyMovement>().moveSpeed = enemySP;
+        newEnemy.GetComponent<Health>().health = spawnHealth;
         newEnemy.transform.position = children[whichChild].position;
     }
 }
